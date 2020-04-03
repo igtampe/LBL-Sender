@@ -14,4 +14,21 @@
     Private Sub Button1_MouseDown(sender As Object, e As MouseEventArgs) Handles Button1.MouseDown
         Button1.Text = "now let me go!"
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim AllFiles As String() = ServerCommand.RawCommand("LBL:DIR:").Split(",")
+
+        ListView1.Items.Clear()
+
+        For Each File As String In AllFiles
+            ListView1.Items.Add(File)
+        Next
+    End Sub
+
+    Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView1.DoubleClick
+        If Not IsNothing(ListView1.SelectedItems) Then
+            Dim Downloader As New LBLReceiver With {.FileToReceive = ListView1.SelectedItems.Item(0).Text}
+            Downloader.Show()
+        End If
+    End Sub
 End Class

@@ -33,7 +33,7 @@ Public Class ServerCommand
             End If
         Catch
             MsgBox("Unable to connect to the server.", MsgBoxStyle.Exclamation, "ViBE Error")
-
+            Return "NOCONNECT"
         End Try
 
         If tc.Connected = True Then
