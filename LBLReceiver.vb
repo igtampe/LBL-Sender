@@ -49,7 +49,6 @@
 
             TimeLeft = ", about " & CInt((MeasuringTimeCoso.ElapsedMilliseconds / 1000.0) * (alllines - X - 1)) & "s to go."
             MeasuringTimeCoso.Reset()
-            X += 1
         Next
 
         'Close the cosito

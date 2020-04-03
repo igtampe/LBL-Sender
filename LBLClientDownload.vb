@@ -36,6 +36,10 @@ Public Class LBLClientDownload
                         response = RawCommand("LBL:TRANSFER:" & ID & ":")
                 End Select
             Loop While response = "E" Or response = "CRASH" Or response = "NOCONNECT"
+        ElseIf response = "invalid Packet Sent" Then
+            'OpenGet already checks if LBL is supported. This may occur during transfer and it simply indicates a blank line.
+            'Perhaps by LBL2.1 we can replace this with LBL.EMPTYLINE
+            Return ""
         End If
         Return response
     End Function

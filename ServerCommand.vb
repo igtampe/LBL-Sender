@@ -6,7 +6,7 @@ Imports System.Net.Sockets
 ''' </summary>
 Public Class ServerCommand
 
-    Const IP As String = “Localhost”
+    Const IP As String = “Igtnet-w.ddns.net”
     Public SessionID As String = ""
 
     Public Shared Function RawCommand(ByVal ClientMSG As String, Optional IPOverride As String = "") As String
